@@ -6,15 +6,17 @@ import Realisation from "../components/realisations-part4/Realisation";
 import Skills from "../components/skills-part3/Skills";
 import {createClient} from "contentful";
 
-
-export default function Home() {
+// 3b on rejoute donc {projets}
+export default function Home({projets}) {
+  // console.log(projets);
   return (
     <Layout>
       <main className=" px-20 py-10">
         <Hero/>
         <About/>
         <Skills/>
-        <Realisation/>
+        {/* 3c On veut que la section realisation récupère la data projets on rajoute l'élément ci dessous au component realisation et aller dans component Realisation voir 3d */}
+        <Realisation projets={projets} />
         <Contact/>
       </main>
     </Layout>
@@ -28,7 +30,16 @@ export async function getStaticProps() {
     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
   });
   // console.log(client);
+
+  // 2- recupere la data une fois que la promise success
+  const res = await client.getEntries({content_type:"projets"});
+  // getEntries(voir node de consol.log) et pojets(voir contentful et voir le id du projets)
+  // console.log( res); // penser à réactualiser la page à chaque console.log
+
+  // 3- On envoie la data dans les props de la page actuelle.
   return {
-    props: {}, // will be passed to the page component as props
+    props: {
+      projets: res.items, // 3.a items: voir terminal après avoir fait console.log(res) plus haut. On renvoie projets en front, le mettre en haut dans home: export default function Home({projets})
+    }, // will be passed to the page component as props
   };
 }

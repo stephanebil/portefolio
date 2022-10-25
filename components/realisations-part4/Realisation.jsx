@@ -1,8 +1,12 @@
+import Link from 'next/link';
 import React from 'react'
 import Cardrealisation from '../cards/Cardrealisation';
 import Titlesection from '../items/Titlesection';
 
-export default function Realisation() {
+// 3d mettre projets ici
+export default function Realisation({projets}) {
+  // console.log(props);
+  
   return (
     <section>
       <div className="pt-24 grid justify-items-center text-center ">
@@ -15,26 +19,25 @@ export default function Realisation() {
         </p>
       </div>
       <div className="py-6 md:grid grid-cols-3 gap-24">
-        <Cardrealisation
-          title="1er portfolio front"
-          tools="React Tailwindcss"
-          img="1.jpg"
-        />
-        <Cardrealisation
-          title="Blog de James Quick"
-          tools="React Tailwindcss"
-          img="capture1.jpg"
-        />
-        <Cardrealisation
-          title="Bienvenue chez Mito Bio"
-          tools="html css js"
-          img="capture2.jpg"
-        />
-        <Cardrealisation
-          title="volvo"
-          tools="wordpress"
-          img="volvo-home-6.jpg"
-        />
+        {/* 3e faire cette map boucle en laissant qu'une seule carte */}
+        {projets.map((projet) => (
+          // <Link href='projets/[slug].jsx'>
+          <Link href={`projets/${projet.fields.slug}`}>
+            <a>
+                <Cardrealisation
+                // 3f rejouter key (voir console pour repérer l'id: dans sys)
+                key={projet.sys.id} 
+                // // 3g rejouter title (voir console pour repérer l'id: dans sys)
+                // title={projet.fields.title}
+                // tools="React Tailwindcss"
+                // img="1.jpg"
+                
+                // 3h rajouer projet={projet} au singulier car une card. aller à Cardrealisation et voir 3i
+                projet={projet}
+                />
+            </a>
+          </Link> 
+        ))}
       </div>
     </section>
   );
