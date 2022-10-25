@@ -1,0 +1,28 @@
+1- installer un nouveau projet
+2- installer tailwind
+3- developper  son projet
+
+CONTENTFUL rendre les parties du sites administrables
+//////////
+1- inscription ou connexion
+2- Creation dans content-model (migration)
+3- Rajoute 3 items à mon  content-model
+
+NEXTJS 
+////////
+1- Install contentful =   npm i contentful
+2- connexion à l'API contentful dans settings-> API keys -> Add APIkeys
+3- Créer un fichier .env et vérifier dans gitignore que c'est ignoré
+4- Dans .env (.env.local), créer les variables d'envirronement en uppercase préfixé par NEXT_PUBLIC:
+    NEXT_PUBLIC_CONTENTFUL_SPACE_ID= eroanzphp4n0
+    NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN= HX7gjYSl4rRgLw5e0ulDekc1f__KGA5qW-7R7AzWbz4
+5- Coller les variables d'environnement récuperées de contentful
+    eroanzphp4n0
+    HX7gjYSl4rRgLw5e0ulDekc1f__KGA5qW-7R7AzWbz4
+6- Duppliquer .env.local et renommer en .env-exemple pour aider la personne qui retravaillera sur mon projet.
+7- Dans index.js rajouter cela:
+                //1- Connect to contentful
+                    const client = createClient({
+                        space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+                        accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
+                    });
