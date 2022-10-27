@@ -14,7 +14,6 @@ export default function Home({projets}) {
     <Layout title="Accueil" metaContent="Bienvenue dans mon portfolio. Je suis Stephane Bilella. développeur web React Laravel Nextjs Tailwinds contactFul">
       
       <main className=" px-20 py-10">
-        <Hero />
         <About />
         <Skills />
         {/* 3c On veut que la section realisation récupère la data projets on rajoute l'élément ci dessous au component realisation et aller dans component Realisation voir 3d */}
