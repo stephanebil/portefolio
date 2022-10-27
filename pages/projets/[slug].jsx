@@ -110,7 +110,7 @@ export default function show({projet}) {
           </div>
           <div className="grid grid-cols-2 gap-3">
             {images.map((image, index) => (
-              <Image
+              <img
                 key={index}
                 src={image.fields.file.url}
                 alt={`Stephane Bilella portfolio ${title}`} //améliore le référencement

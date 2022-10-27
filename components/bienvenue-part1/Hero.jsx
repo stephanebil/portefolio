@@ -1,8 +1,7 @@
 import React from 'react'
 import Button from '../items/Button';
 
-export default function 
-() {
+export default function Hero () {
   return (
     <section className="py-16 min-h-screen">
       <div className="text-center">
