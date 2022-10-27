@@ -22,21 +22,21 @@ export default function Realisation({projets}) {
         {/* 3e faire cette map boucle en laissant qu'une seule carte */}
         {projets.map((projet) => (
           // <Link href='projets/[slug].jsx'>
-          <Link href={`projets/${projet.fields.slug}`}>
+          <Link href={`projets/${projet.fields.slug}`} key={projet.sys.id}>
             <a>
-                <Cardrealisation
+              <Cardrealisation
                 // 3f rejouter key (voir console pour repérer l'id: dans sys)
-                key={projet.sys.id} 
+                // key={projet.sys.id}
                 // // 3g rejouter title (voir console pour repérer l'id: dans sys)
                 // title={projet.fields.title}
                 // tools="React Tailwindcss"
                 // img="1.jpg"
-                
+
                 // 3h rajouer projet={projet} au singulier car une card. aller à Cardrealisation et voir 3i
                 projet={projet}
-                />
+              />
             </a>
-          </Link> 
+          </Link>
         ))}
       </div>
     </section>

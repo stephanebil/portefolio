@@ -26,3 +26,12 @@ NEXTJS
                         space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
                         accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
                     });
+
+
+Description
+///////////
+Pour rich text=> npm install @contentful/rich-text-react-renderer
+voir fichier slug à Description:
+    <div className="">{documentToReactComponents(description)}</div>
+Penser à importer "documentToReactComponents":
+    import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
